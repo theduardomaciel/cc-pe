@@ -1,7 +1,15 @@
 {
     "cSpell.words": [
         "byrow",
+        "dataframe",
+        "imcs",
+        "mfrow",
         "nolint",
-        "readxl"
+        "readxl",
+        "varwidth",
+        "xlab",
+        "xlim",
+        "ylab",
+        "ylim"
     ]
 }
