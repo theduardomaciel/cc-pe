@@ -61,30 +61,22 @@ workers_instruction <- table(workers$Inst)
 ## Frequência relativa
 prop.table(workers_instruction) # proporcional (valor percentual)
 
-## Gráfico de Barras
-barplot(sort(workers_instruction,
-             decreasing = FALSE),
-        cex.names = 1.15,
-        col = c("green", "blue", "red"),
-        ylab = "Instrução de Funcionários",
-        xlab = "Escolaridade",
-        cex.axis = 1.05,
-        main = "Escolaridade dos Funcionários",
-        cex.lab = 0.85,
-        bty = "n",
-        ylim = c(0, 20))
+render_bar_plot <- function(sort = FALSE) {
+    barplot(sort(workers_instruction, decreasing = sort),
+            cex.names = 1.15,
+            col = c("green", "blue", "red"),
+            ylab = "Instrução de Funcionários",
+            xlab = "Escolaridade",
+            cex.axis = 1.05,
+            main = "Escolaridade dos Funcionários",
+            cex.lab = 0.85,
+            bty = "n",
+            ylim = c(0, 20))
+}
 
-barplot(sort(workers_instruction,
-             decreasing = TRUE),
-        cex.names = 1.15,
-        col = c("green", "blue", "red"),
-        ylab = "Instrução de Funcionários",
-        xlab = "Escolaridade",
-        cex.axis = 1.25,
-        main = "Escolaridade dos Funcionários",
-        cex.lab = 0.85,
-        bty = "n",
-        ylim = c(0, 20))
+## Gráfico de Barras
+render_bar_plot(FALSE)
+render_bar_plot(TRUE)
 
 ## c) Variável Quantitativa Discreta =================================
 
@@ -99,31 +91,40 @@ plot(children_freq,
      col = "green",
      type = "h", # gráfico de barras
      lwd = 5, # largura da linha
-     cex.lab = 1.2,
+     cex.lab = 1.2, # tamanho da fonte dos rótulos
      main = "Frequência Absoluta",
      xlab = "Número de filhos",
      ylab = "Quantidade de Filhos")
 
 plot(children_freq,
      type = "S", # gráfico de linha
-     col = "red",
+     col = "red", # cor da linha
      main = "Frequência relativa acumulada",
-     lwd = 5)
+     lwd = 5) # largura da linha
+
+get_freq_table <- function(data) {
+    freq_table <- table(data)
+    relative_freq <- prop.table(freq_table)
+
+    ## Frequência absoluta e relativa acumulada
+    cumulative_freq <- cumsum(freq_table)
+    cumulative_relative_freq <- cumsum(relative_freq)
+
+    result_table <- cbind(freq_table,
+                          cumulative_freq,
+                          relative_freq = round(relative_freq * 100,
+                                                digits = 2),
+                          cumulative_relative_freq = round(cumulative_relative_freq * 100,
+                                                           digits = 2))
+
+    return(result_table)
+}
 
 ## Frequência relativa
 children_relative_freq <- prop.table(children_freq)
 
-## Frequência absoluta e relativa acumulada
-children_cumulative_freq <- cumsum(children_freq)
-children_rel_cumulative_freq <- cumsum(children_relative_freq)
-
-table_result <- cbind(children_freq,
-                      children_cumulative_freq,
-                      children_relative_freq = round(children_relative_freq * 100,
-                                                     digits = 2),
-                      children_rel_cumulative_freq = round(children_rel_cumulative_freq * 100,
-                                                           digits = 2))
-table_result
+# Tabela de frequência
+children_freq_table <- get_freq_table(workers$Filhos)
 
 ## d) Variável quantitativa Contínua =================================
 
@@ -138,45 +139,21 @@ classes_limits <- seq(4, 23.60, classes_amplitude) # limites das classes
 classes <- c("04.0 |- 06.8", "06.8 |- 09.6", "09.6 |- 12.4", "12.4 |- 15.2",
              "15.2 |- 18.0", "18.0 |- 20.8", "20.8 |- 23.6")
 
-freq_table <- table(cut(salary, breaks = classes_limits,
-                        right = FALSE,
-                        include.lowest = TRUE,
-                        labels = classes))
+freq <- table(cut(Salario.tb, breaks = classes_limits, right = FALSE,
+                  include.lowest = TRUE, labels = classes))
 
-# A função "table" é utilizada para criar tabelas de frequência
-# A função "cut" é utilizada para dividir os dados em intervalos
+result_table <- get_freq_table(freq)
 
-# freq_table = table(cut(salary, breaks = classes_limits, right=FALSE, labels=classes))
+# retirar labels e observar os intervalos
+freq = table(cut(Salario.tb, breaks = limitesclas, right=FALSE)) 
 
-cumulative_freq <- cumsum(freq_table)
-relative_freq <- prop.table(freq_table)
-relative_cumulative_freq <- cumsum(relative_freq)
+FreqAc <- cumsum(freq); FreqRel <- prop.table(freq); FreqRelAc <- cumsum(FreqRel)
 
-result_table <- cbind(freq_table,
-                      cumulative_freq,
-                      relative_freq = round(relative_freq * 100,
-                                            digits = 2),
-                      relative_cumulative_freq = round(relative_cumulative_freq * 100,
-                                                       digits = 2))
-result_table
+TabResul = cbind(freq,FreqAc, FreqRel = round(FreqRel*100,digits = 2),
+                 FreqRelAc= round(FreqRelAc*100,digits = 2))
+TabResul
 
-# Retira os labels e observa os intervalos
-freq_table <- table(cut(salary, breaks = classes_limits, right = FALSE))
-
-cumulative_freq <- cumsum(freq_table)
-relative_freq <- prop.table(freq_table)
-relative_cumulative_freq <- cumsum(relative_freq)
-
-result_table <- cbind(freq_table,
-                      cumulative_freq,
-                      relative_freq = round(relative_freq * 100,
-                                            digits = 2),
-                      relative_cumulative_freq = round(relative_cumulative_freq * 100,
-                                                       digits = 2))
-
-result_table
-
-h = hist(salary, breaks=classes_limits,
+h = hist(Salario.tb, breaks=limitesclas,
          ylab="Frequencias absolutas",  labels=classes,main="Histograma", 
          xlim=c(4,25), ylim = c (0,16), col="orange")
 
