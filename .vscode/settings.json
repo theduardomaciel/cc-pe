@@ -6,6 +6,7 @@
         "mfrow",
         "nolint",
         "readxl",
+        "topright",
         "varwidth",
         "xlab",
         "xlim",
