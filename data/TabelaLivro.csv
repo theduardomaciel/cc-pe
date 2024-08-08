@@ -1,4 +1,4 @@
-Funcionario;Est.civil;Instrucao ;Filhos;Salario ;Anos;Meses;Regiao 
+Funcionario;Est.civil;Instrução ;Filhos;Salario ;Anos;Meses;Regiao 
 1;solteiro;ensino fundamental;;4.00;26;3;interior
 2;casado;ensino fundamental;1;4.56;32;10;capital
 3;casado;ensino fundamental;2;5.25;36;5;capital
