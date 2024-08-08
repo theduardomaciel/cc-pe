@@ -1,4 +1,4 @@
-## ---Exemplo 3. IMC com CLASSES DESIGUAIS ---------------------------
+## --- Exemplo 3. IMC com CLASSES DESIGUAIS ---------------------------
 
 setwd("./data")
 

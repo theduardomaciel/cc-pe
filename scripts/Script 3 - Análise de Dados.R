@@ -338,7 +338,7 @@ barplot(instruction_x_civil_state,
 )
 
 
-# b) Qualitativa vs quantitativa (variaveis Instrução e Salario) --------
+# b) Qualitativa vs quantitativa (Variáveis Instrução e Salario) --------
 
 ## Quartis de salario
 
