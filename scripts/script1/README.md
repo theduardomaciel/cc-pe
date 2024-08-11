@@ -1,10 +1,11 @@
 ## 📊 Script 1: Introdução ao Software R
 
-Este repositório contém um script em R que serve como introdução aos conceitos básicos da linguagem. O arquivo principal está dividido em seis partes, cada uma abordando um tópico específico. A seguir, está uma descrição detalhada de cada parte do script.
+Este script em R serve como introdução aos conceitos básicos da linguagem. O arquivo original foi dividido em seis partes, cada uma abordando um tópico específico.  
+A seguir, está uma descrição detalhada de cada parte do script.
 
 ### 📁 Estrutura do Script
 
-O script de `Introdução` está dividido nas seguintes seções:
+O script está dividido nas seguintes seções:
 
 ```
 script1/

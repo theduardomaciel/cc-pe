@@ -2,7 +2,7 @@
 #              Valores Agrupados
 # -------------------------------------------
 
-## Exemplo 1 - Bicicletas ---------------------------------------------
+## Exemplo 1 - Produção diária de uma fábrica de bicicletas
 
 rm(list = ls())
 
@@ -12,7 +12,7 @@ production <- read.csv("Bicicleta.csv",
     header = TRUE,
     sep = ",", dec = "."
 )
-str(production)
+production
 
 hist(production$Bike) # Histograma
 
@@ -28,6 +28,7 @@ amplitude <- diff(bikes_range)
 # ou: amplitude <- max(production$Bike) - min(production$Bike)
 
 # Aqui, calculamos o número de classes
+# Fórmula de Sturges: K = 1 + 3,322 log n
 n_classes <- nclass.Sturges(production$Bike)
 
 # Também calculamos a amplitude das classes

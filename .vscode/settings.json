@@ -5,6 +5,7 @@
         "imcs",
         "mfrow",
         "nolint",
+        "quantiles",
         "readxl",
         "topright",
         "varwidth",
