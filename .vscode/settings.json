@@ -5,6 +5,7 @@
         "imcs",
         "mfrow",
         "nolint",
+        "pearson",
         "quantiles",
         "readxl",
         "topright",
