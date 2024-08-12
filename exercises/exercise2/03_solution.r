@@ -11,9 +11,10 @@ cars
 
 # ==================================================
 
-# Com a coluna "qsec" agrupe os dados em seus respectivos quartis
+# Com a coluna "qsec" (tempo de 1/4 de milha)  agrupe os dados em seus respectivos quartis
 
 quantiles <- quantile(cars$qsec)
+quantiles
 
 get_freq_table <- function(freq_table) {
     ## Frequência relativa
@@ -50,12 +51,9 @@ freq_table
 # Gere o histograma
 histogram <- hist(cars$qsec,
     col = "lightblue",
-    main = "Histograma de qsec"
+    main = "Histograma de qsec",
+    xlab = "Tempo de 1/4 de milha",
+    ylab = "Frequência",
+    xlim = c(14, 23),
+    breaks = quantiles
 )
-
-# Caso os quartis fossem representados no histograma
-# histogram <- hist(cars$qsec,
-#     col = "lightblue",
-#     breaks = quantiles,
-#     main = "Histograma de qsec"
-# )

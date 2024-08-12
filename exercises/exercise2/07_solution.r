@@ -16,7 +16,7 @@ cars
 # gerar gráfico de dispersão,
 # agrupar usando os quartis e interpretar os resultados.
 
-# As variáveis quantitativas foram:
+# As variáveis quantitativas escolhidas foram:
 # mpg (milhas por galão) e wt (peso)
 
 # Calcular o coeficiente de correlação
