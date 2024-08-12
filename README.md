@@ -44,6 +44,9 @@ Para isso, você pode baixar o R a partir do site oficial [https://cran.r-projec
 > [!TIP]
 > Para utilizar o R no Visual Studio Code (VScode), você pode instalar a extensão `R` e configurar o ambiente conforme as instruções disponíveis [aqui](https://code.visualstudio.com/docs/languages/r) e [aqui](https://github.com/REditorSupport/vscode-R/wiki/Installation:-Windows).
 
+## Material Teórico
+Para acessar o material teórico, visite o [Notion](https://www.notion.so/theduardomaciel/Probabilidade-e-Estat-stica-c0e84ebbec0944a484f48e335b7d4249?pvs=4)
+
 ## Contribuição
 
 Contribuições são bem-vindas! Sinta-se à vontade para enviar _pull requests_ ou abrir _issues_ para reportar bugs ou sugerir melhorias.
