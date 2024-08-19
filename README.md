@@ -1,3 +1,5 @@
+# Linguagem R aplicada à Probabilidade e Estatística
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./.github/cover.png">
   <source media="(prefers-color-scheme: light)" srcset="./.github/cover_light.png">
