@@ -1,4 +1,8 @@
-# Linguagem R aplicada à Probabilidade e Estatística
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./.github/cover.png">
+  <source media="(prefers-color-scheme: light)" srcset="./.github/cover_light.png">
+  <img alt="Linguagem R aplicada à Probabilidade e Estatística" src="/.github/cover_light.png">
+</picture>
 
 Este repositório contém os conteúdos, scripts e datasets utilizados durante a matéria de Probabilidade e Estatística, cursada no período 2024.1.  
 Ele foi organizado para facilitar o acesso e o entendimento do material estudado.
