@@ -42,7 +42,7 @@ Para isso, você pode baixar o R a partir do site oficial [https://cran.r-projec
 2. Navegue até o diretório do repositório:
 
    ```bash
-   cd probabilidade-estatistica
+   cd cc-pe
    ```
 
 3. Abra o RStudio ou qualquer outro ambiente de sua preferência e execute os scripts.
@@ -52,6 +52,13 @@ Para isso, você pode baixar o R a partir do site oficial [https://cran.r-projec
 
 ## Material Teórico
 Para acessar o material teórico, visite o [Notion](https://www.notion.so/theduardomaciel/Probabilidade-e-Estat-stica-c0e84ebbec0944a484f48e335b7d4249?pvs=4)
+
+## Links Úteis
+
+- [R Project](https://www.r-project.org/)
+- [RStudio](https://www.rstudio.com/)
+- [Notion](https://www.notion.so/theduardomaciel/Probabilidade-e-Estat-stica-c0e84ebbec0944a484f48e335b7d4249?pvs=4)
+- [Símbolos do alfabeto grego](https://jblevins.org/log/greek)
 
 ## Contribuição
 
