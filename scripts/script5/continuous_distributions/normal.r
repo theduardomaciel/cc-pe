@@ -612,3 +612,91 @@ text(80, 0.02, round(p, digits = 4), cex = 1)
 qnorm(p = 95 / 100, mean = 120, sd = 15)
 
 # Tendo P(z) = 0,95, pela tabela, z = 1,64, portanto, (t - 120) / 15 = 1,64 -> t = 144,6
+
+# Exemplo 10 ===============================================================
+# Seja uma VA X com distribuição normal com média 220 e variância 16,
+# ou seja, N(220; 16). Calcule as probabilidades abaixo:
+
+ex_mean <- 220
+ex_sd <- sqrt(16)
+
+# ---- a) P(X <= 225)
+pnorm(q = 225, mean = ex_mean, sd = ex_sd)
+
+# P(X <= (225 - 220) / 4) = P(Z <= 1,25) = 0,8944
+pnorm(q = 1.25, mean = 0, sd = 1) # equivalente a: pnorm(1.25)
+
+# ---- b) P(210 <= X <= 228)
+pnorm(q = 228, mean = ex_mean, sd = ex_sd) - pnorm(q = 210, mean = ex_mean, sd = ex_sd)
+
+# P(210 <= X <= 228) = P(X <= 228) - P(X <= 210) = P((210 - 220) / 4 <= Z <= (228 - 220) / 4)
+# P(-2,5 <= Z <= 2) = P(2) - P(-2,5)
+# Pela tabela completa, P(2) - P(-2,5) = 0,9772 - 0,0062 = 0,971
+
+# Plotando o gráfico
+
+x <- seq(200, 240)
+y <- dnorm(x, ex_mean, ex_sd)
+
+plot <- plot(x, y,
+    type = "l",
+    lwd = 2,
+    col = "black",
+    xlab = "Valores",
+    ylab = "Densidade",
+    main = "Distribuição Normal"
+)
+
+i <- x >= 210 & x <= 228
+
+polygon(c(210, x[i], 228), c(0, y[i], 0), col = "red")
+
+p <- pnorm(q = 228, mean = ex_mean, sd = ex_sd) - pnorm(q = 210, mean = ex_mean, sd = ex_sd)
+text(220, 0.04, round(p, digits = 4), cex = 1)
+
+# ---- c) Qual o valor de k tal que P(X ≤ k) = 0,01
+
+# Basta procurar 0,9900 na tabela normal completa, assim z = -2,33
+# Assim, a partir da tabela temos que (k - 200) / 4 = -2,33, assim k = 210,69
+
+qnorm(p = 0.01, mean = ex_mean, sd = ex_sd) # 210.6946
+
+# Exemplo 10 ===============================================================
+# Em uma universidade, as notas são normalmente distribuídas com
+# média de 72 pontos e desvio padrão de 9.
+# O professor atribuirá conceito A aos 8% dos melhores alunos.
+
+# Qual a menor nota que um aluno pode tirar de modo a garantir um conceito A?
+# P(X > x) = 0,08, logo P(X ≤ x) = 0,92
+# Basta procurar na tabela o valor de z para 0,92, que é 1,41
+
+# z = (x - μ) / σ
+# 1,41 = (x - 72) / 9
+# 1,41 * 9 = x - 72
+# 12,69 = x - 72
+# x = 84,69 pontos
+
+qnorm(p = 8 / 100, mean = 72, sd = 9, lower.tail = FALSE) # 84.64
+
+# Exemplo 11 ===============================================================
+# Considerando o script abaixo, gerar uma distribuição normal,
+# utilizando o software R, conforme o valor xx da sua matrícula
+
+xx <- 15
+pesos <- seq(xx * 10 - 2 * xx, xx * 10 + 2 * xx)
+amostra <- sample(pesos, xx + 30, replace = TRUE)
+
+media <- mean(amostra)
+desvio <- sd(amostra)
+
+x <- seq(media - 4 * desvio, media + 4 * desvio)
+y <- dnorm(x, mean = media, sd = desvio)
+plot(x,
+    y,
+    type = "l",
+    lwd = 2,
+    col = "black",
+    xlab = "Valores",
+    ylab = "Densidade",
+    main = "Distribuição Normal"
+)
