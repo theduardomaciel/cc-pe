@@ -29,14 +29,25 @@ cat("c) P(X > 4636) =", round(v3, digits = 2) * 100, "%\n")
 
 # a) P(X < 990) = F(990)
 v1 <- pnorm(990, mean = 1000, sd = 10)
-cat("a) Em ", round(v1, digits = 2) * 100, "% das garrafas o volume de líquido é menor que 990cm^3\n")
+cat("a) Em", round(v1, digits = 2) * 100, "% das garrafas o volume de líquido é menor que 990cm^3\n")
 
 # b) P(980 < X < 1020) = F(1020) - F(980)
 v2 <- pnorm(1020, mean = 1000, sd = 10) - pnorm(980, mean = 1000, sd = 10)
-cat("b) Em aproximadamente ", round(v2, digits = 2) * 100, "% das garrafas, o volume de líquido não se desvia da média em mais que
+cat("b) Em aproximadamente", round(v2, digits = 2) * 100, "% das garrafas, o volume de líquido não se desvia da média em mais que
 dois desvios padrões. \n")
 
-#
+# c) P(X > 1002) = 1 - P(X <= 1002)
+# Probabilidade de uma garrafa ter volume superior a 1002 cm³
+p_garrafa_superior <- 1 - pnorm(1002, mean = 1000, sd = 10)
+
+# Usamos a distribuição binomial para calcular a probabilidade de no máximo 4 garrafas
+# terem volume superior a 1002 cm³ em 10 tentativas
+prob_no_maximo_4 <- pbinom(4, size = 10, prob = p_garrafa_superior)
+
+cat(
+    "c) A probabilidade de que no máximo 4 das 10 garrafas tenham volume superior a 1002 cm³ é de",
+    round(prob_no_maximo_4, digits = 4) * 100, "%.\n"
+)
 
 # 3. Em um certo teste de aptidão para contratação de determinada empresa, os candidatos
 # devem realizar uma sequência de tarefas no menor tempo possível. Suponhamos que o
