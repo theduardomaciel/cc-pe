@@ -26,6 +26,10 @@ lucro_esperado
 # Calculando a variância = E(X^2) - E(X)^2
 variancia <- sum(f_x * (lucro^2)) - lucro_esperado^2
 
+# Calculando a variância por outro método: Var(X) = E(x - \mu)^2
+variancia2 <- sum(f_x * (x - lucro_esperado)^2)
+variancia2
+
 # Calculando o desvio padrão
 desvio_padrao <- sqrt(variancia)
 desvio_padrao
